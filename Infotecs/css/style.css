@@ -1,0 +1,228 @@
+.main {
+    display: flex;
+    /*делаем из блока flex-контецнер, чтобы таблица и форма редактирования 
+                        выстраились друг за другом в строчку*/
+}
+
+/*стили для таблицы*/
+.main__table {
+    margin: 30px;
+
+    max-width: 50vw;
+    /*Установим значение ширины таблицы, равное 50% от экрана*/
+    font-size: 18px;
+    border-collapse: collapse;
+
+    word-wrap: break-word;
+    hyphens: auto;
+    text-align: justify;
+    background-color: PaleGoldenrod;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+/*стили для шапки таблицы*/
+.table-head {
+    text-align: center;
+    background-color: DarkKhaki;
+
+}
+
+/*стили для строк в шапке и теле таблицы*/
+.table-head__column,
+.main__table-row {
+    border: 3px solid white;
+    padding: 7px;
+}
+
+/*стили для шапки таблицы при наведении на нее курсора мыши (меняем цвет ячейки)*/
+.table-head__column:hover {
+    background-color: khaki;
+    cursor: pointer;
+}
+
+/*стили для строк в теле таблицы при наведении на них курсора мыши (меняем цвет ячеек)*/
+.main__table-row:hover {
+    cursor: pointer;
+    background-color: LemonChiffon;
+}
+
+/*стили для первых двух колонок таблицы*/
+.main__table-row:nth-child(1),
+.main__table-row:nth-child(2) {
+    min-width: 90px;
+    /*устанавливаем максимальную ширину столбцов,*/
+}
+
+/*чтобы при заполнении текстом, они сильно не растягивались*/
+
+/*стили для третьей колоноки таблицы*/
+.main__table-row:nth-child(3) {
+    min-width: 400px;
+    max-width: 500px;
+}
+
+/*стили для блоков, отображающих цвет глаз*/
+.main__table-row span {
+    display: inline-block;
+    /*элемент останется строчным, но будет иметь некоторые свойства блока, так,*/
+    /*например, задать ширину и высоту*/
+}
+
+/*стили для формы редактирования записей*/
+.editing-form {
+    position: fixed;
+    /*фиксируем положение формы, чтобы при пролистывании записей в таблице*/
+    /*форма не пролистывалась вместе с записями*/
+    display: flex;
+    /*делаем из формы flex-контейнер*/
+    flex-direction: column;
+    /*выстраиваем flex-элементы в колонку*/
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/*стили для заголовка формы редактирования*/
+.editing-form__title {
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+/*стили для полей ввода и кнопки формы редактирования*/
+.editing-form__input,
+.editing-form__button {
+    width: 30vw;
+
+    margin: 5px 0;
+    padding: 10px;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    border-radius: 10px;
+    border-color: DarkKhaki;
+    background-color: LemonChiffon;
+}
+
+/*стили для поля ввода text-area*/
+.editing-form__textarea {
+    resize: none;
+    /*запрещаем пользователю самому менять рпзмер поля*/
+}
+
+/*стили для полей ввода в состоянии фокуса*/
+.editing-form__input:focus,
+.editing-form__textarea:focus {
+    border: 4px solid DarkKhaki;
+    outline: none;
+}
+
+/*стили для кнопки формы редактирования*/
+.editing-form__button {
+    width: 7vw;
+    background-color: DarkKhaki;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/*стили для формы редактирования (скрываем форму)*/
+.editing-form_hidden {
+    opacity: 0;
+    transition-duration: 0.2s;
+}
+
+/*стили для формы редактирования (показываем форму)*/
+.editing-form_visible {
+    display: flex;
+    opacity: 1;
+    transition: 0.2s;
+}
+
+/*стили для выделенной строки таблицы*/
+.main__table-row_selected {
+    background-color: LemonChiffon;
+}
+
+/*стили для крестика, закрывающего форму редактирования*/
+.form-exit {
+    position: relative;
+    display: block;
+    cursor: pointer;
+
+    left: 31vw;
+    top: 9vh;
+    width: 3px;
+    height: 22px;
+    background-color: black;
+}
+
+.form-exit_right {
+    transform: rotate(45deg) translateY(14px) translateX(1px);
+}
+
+.form-exit_left {
+    transform: rotate(-45deg) translateY(-14px) translateX(2px);
+}
+
+/*стили для блоков, показывающих цвет глаз*/
+.main__table-row_red {
+    background-color: red;
+    border: 3px solid white;
+    width: 40px;
+    height: 40px;
+}
+
+.main__table-row_blue {
+    background-color: blue;
+    border: 3px solid white;
+    width: 40px;
+    height: 40px;
+
+}
+
+.main__table-row_brown {
+    background-color: brown;
+    border: 3px solid white;
+    width: 40px;
+    height: 40px;
+}
+
+
+.main__table-row_green {
+    background-color: green;
+    border: 3px solid white;
+    width: 40px;
+    height: 40px;
+}
+
+/*стили для панели с элементами скрывающими или показывающими столбцы*/
+.table-pannel {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    background-color: LemonChiffon;
+    margin: 10px 30px 0 30px;
+    max-width: 50vw;
+}
+
+.table-pannel__elem {
+    display: inline-block;
+    padding: 3px 15px;
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.table-pannel__img {
+    max-width: 20px;
+}
+
+.table-pannel__elem:hover {
+    background-color: khaki;
+    cursor: pointer;
+}
+
+.main__table-column_hide{
+    display: none;
+}
+
